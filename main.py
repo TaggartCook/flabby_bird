@@ -5,6 +5,10 @@ from game import Game
 pygame.init()
 screen = pygame.display.set_mode((400, 720))
 clock = pygame.time.Clock()
+
+SPAWNPIPE = pygame.USEREVENT
+pygame.time.set_timer(SPAWNPIPE, 1800)
+
 game = Game('bird.png','pipe.png','background.png','ground.png')
 game.resize_images()
 
@@ -18,11 +22,17 @@ while True:
             if event.key == pygame.K_SPACE and game.active:
                 game.flap()
 
+        if event.type == SPAWNPIPE:
+            game.add_pipe()
+
     game.show_bg(screen)
 
     if game.active:
         game.show_bird(screen)
         game.update_bird()
+        game.move_pipes()
+        game.show_pipes(screen)
+        game.check_collision()
 
     game.show_ground(screen)
     game.move_ground()
