@@ -39,7 +39,7 @@ while True:
         game.update_score()
         game.show_score('playing',screen, (255,255,255))
     else:
-        game.game_over(screen,(255,0,0))
+        game.game_over(screen,(255,0,0 ))
 
     game.show_ground(screen)
     game.move_ground()

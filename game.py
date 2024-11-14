@@ -94,14 +94,14 @@ class Game:
 
         if game_state == "game_over":
             restart_text1 = self.font.render("Press Space Bar", True, color)
-            restart_rect1 = restart_text1.get_rect(center=(200,340))
+            restart_rect1 = restart_text1.get_rect(center=(200,280))
             screen.blit(restart_text1, restart_rect1)
 
             restart_text2 = self.font.render("to Play Again", True, color)
             restart_rect2 = restart_text2.get_rect(center=(200,340))
             screen.blit(restart_text2, restart_rect2)
 
-            high_score_surface = self.font.render("High Score: {:d}".format(int(self.high_score)))
+            high_score_surface = self.font.render("High Score: {:d}".format(int(self.high_score)),True, color)
             high_score_rect = high_score_surface.get_rect(center = (200,610))
             screen.blit(high_score_surface,high_score_rect)
 
